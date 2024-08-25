@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="css/main.css" rel="stylesheet"/>
+</head>
+<body>
+<h1> Gehalt.io 2.0</h1>
+  <table id="employees">
+      <thead>
+      <th>Name</th>
+      <th>Department</th>
+      <th>Salary</th>
+      <th>Mitarbeiter ID</th>
+      <th colspan="3">Action</th>
+      </thead>
+      <tbody>
+      <tr th:each="employee : ${employees}">
+          <td th:text="${employee.name}"/>
+          <td th:text="${employee.department}"/>
+          <td th:text="${employee.salary}"/>
+          <td th:text="${employee.mitarbeiterID}"/>
+          <td><a th:href="@{employees/{id}(id=${employee.mitarbeiterID})}">Edit</a></td>
+          <td><a th:href="@{employeehistory/{id}(id=${employee.mitarbeiterID})}">History</a></td>
+          <td><a href="/employees/new">New</a></td>
+      </tr>
+      </tbody>
+  </table>
+</body>
+</html>

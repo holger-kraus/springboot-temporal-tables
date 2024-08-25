@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="/css/main.css" rel="stylesheet"/>
+</head>
+<body>
+<h1 th:text="| The full history of Employee Nr ${employeeId}|"/>
+<table id="employees">
+  <thead>
+   <th>Name</th>
+   <th>Department</th>
+   <th>Salary</th>
+   <th>Mitarbeiter ID </th>
+   <th> Gültig seit  </th>
+   <th> Gültig bis   </th>
+  </thead>
+  <tbody>
+  <tr th:each="employee : ${employee}">
+    <td th:text="${employee.name}"/>
+    <td th:text="${employee.department}"/>
+    <td th:text="${employee.salary}"/>
+    <td th:text="${employee.mitarbeiterID}"/>
+    <td th:text="${#temporals.format(employee.sysPeriod.lower, 'dd-MMM-yyyy kk:mm:ss')}"/>
+    <td th:text="${#temporals.format(employee.sysPeriod.upper, 'dd-MMM-yyyy kk:mm:ss')}"/>
+  </tr>
+  </tbody>
+</table>
+<a href="http://localhost:8080/employees">Back to all Employees</a>
+</body>
+</html>

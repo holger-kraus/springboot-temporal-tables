@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <title>Title</title>
+    <link href="/css/main.css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Edit Mitarbeiter</h1>
+  <form class="form" th:action="@{/employees/{id}(id=${employee.mitarbeiterID})}" method="post">
+      <div class="margin-container">
+      <label class="input-pair">Name:<input name="name" type="text" th:value="${employee.name}"/></label>
+      <label class="input-pair">Department:<input name="department" type="text" th:value="${employee.department}"/></label>
+      <label class="input-pair">Salary<input name="salary" type="text" th:value="${employee.salary}"/></label>
+      <input class="submit" type="submit">
+      </div>
+  </form>
+</body>
+</html>
