@@ -1,4 +1,4 @@
-CREATE SEQUENCE IF NOT EXISTS employees_mitarbeiter_id_seq START WITH 1 INCREMENT BY 1;
+CREATE SEQUENCE IF NOT EXISTS employees_mitarbeiter_id_seq START WITH 2 INCREMENT BY 1;
 
 CREATE TABLE employees
 (
@@ -9,7 +9,7 @@ CREATE TABLE employees
     CONSTRAINT pk_employees PRIMARY KEY (mitarbeiter_id)
 );
 ALTER TABLE employees  ADD COLUMN sys_period tstzrange NOT NULL DEFAULT tstzrange(current_timestamp, null);
-
+INSERT INTO employees (mitarbeiter_id,name, department, salary) VALUES (1,'Frank Miller', 'Development', 500);
 CREATE TRIGGER versioning_trigger BEFORE INSERT OR UPDATE OR DELETE ON employees FOR EACH ROW EXECUTE PROCEDURE versioning('sys_period', 'employees_history', true);
 create table employees_history
 (
