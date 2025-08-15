@@ -1,0 +1,22 @@
+{
+  "name": "codespace-with-claude",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": { "version": "20" }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "anthropic.claude-code"      // VS Code Extension
+      ],
+      "settings": {
+        "terminal.integrated.inheritEnv": true
+      }
+    }
+  },
+  "remoteEnv": {
+    "ANTHROPIC_API_KEY": "${localEnv:ANTHROPIC_API_KEY}",
+    "ANTHROPIC_MODEL": "claude-3-5-sonnet-20241022"
+  },
+  "postCreateCommand": "npm -g i @anthropic-ai/claude-code && claude --version"
+}
