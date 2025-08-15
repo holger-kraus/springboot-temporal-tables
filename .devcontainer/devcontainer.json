@@ -18,5 +18,11 @@
     "ANTHROPIC_API_KEY": "${localEnv:ANTHROPIC_API_KEY}",
     "ANTHROPIC_MODEL": "claude-3-5-sonnet-20241022"
   },
+  "containerEnv": {
+    // Damit claude den API-Token erkennt und nutzt, müssen wir einen Workaround benutzen.
+    // Sonst landet man immer im Login Screen und soll sich über den Browser Authentifizieren.
+    // Siehe: https://github.com/anthropics/claude-code/issues/1084#issuecomment-3063741722
+    "ANTHROPIC_AUTH_TOKEN": "1234"
+  },
   "postCreateCommand": "npm -g i @anthropic-ai/claude-code && claude --version"
 }
