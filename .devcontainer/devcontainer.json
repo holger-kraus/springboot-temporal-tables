@@ -14,8 +14,9 @@
       "antVersion": "latest"
     },
     "ghcr.io/devcontainers/features/git:1": {},
+    "ghcr.io/devcontainers/features/sshd:1": {},
     "ghcr.io/devcontainers/features/github-cli:1": {},
-    "ghcr.io/devcontainers/features/node:1": {
+    "ghcr.io/devcontainers/features/node:4": {
       "version": "lts"
     }
   },
